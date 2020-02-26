@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "UserForm";
+}
+
+@model User
+
+<h1>UserForm</h1>
+@*Html.ValidationSummary() lists out everythign that was incorrect when the form was submitted*@
+@Html.ValidationSummary()
+<div>
+    <form action="../User/DisplayUser" method="post">
+        @Html.LabelFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+        <input type="text" name="Name" value="@Model.Name" placeholder="Name" required />
+        <input type="text" name="Email" value="@Model.Email" placeholder="Email" required/>
+        <input type="text" name="Address" value="@Model.Address" placeholder="Address" />
+        <input type="text" name="City" value="@Model.City" placeholder="City" />
+        <input type="text" name="State" value="@Model.State" placeholder="State" />
+        <input type="text" name="ZipCode" value="@Model.ZipCode" placeholder="ZIP" />
+        <input type="text" name="FavProWrestler" value="@Model.FavProWrestler" placeholder="Favorite Pro Wrestler" />
+        <input type="date" name="DOB" value="@Model.DOB" placeholder="Birthday" />
+
+        <input type="submit" value="Add User" />
+
+    </form>
+</div>
